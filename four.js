@@ -57,19 +57,28 @@ const evaluatechoice=(eval)=>{
     }
 }
 const compoutput=()=>{
-    let randomnum = Math.floor(Math.random*3);
+    let randomnum = Math.floor(Math.random()*3);
     let array = ["rock","paper","scissor"];
     let companswer=array[randomnum];
     return companswer;
 
 }
-const compare=(player,computer)=>{
-    result=player===computer? "Tie Game!":player==="rock" && computer==="paper"? `Playerone:${player}\nComputer:${computer}\n Computer Wins!`:
-    player==="scissor" && computer==="rock"? `Playerone:${player}\nComputer:${computer}\n Computer Wins!`:
-    player==="paper" && computer==="scissor"? `Playerone:${player}\nComputer:${computer}\n Computer Wins!`:
-    `Playerone:${player}\nComputer:${computer}\n Playerone Wins!`;
+const compare = (player, computer) => {
+    const result =
+        player === computer
+            ? "Tie Game!"
+            : (player === "rock" && computer === "scissor") ||
+            (player === "scissor" && computer === "paper") ||
+            (player === "paper" && computer === "rock")
+                ? `Player One: ${player}\nComputer: ${computer}\nPlayer One Wins!`
+                : (player === "rock" && computer === "paper") ||
+                (player === "scissor" && computer === "rock") ||
+                (player === "paper" && computer === "scissor")
+                    ? `Player One: ${player}\nComputer: ${computer}\nComputer Wins!`
+                    : `Invalid Choices! Please enter rock, paper, or scissor.`;
+
     return result;
-}
+};
 const displayresult=(result)=>{
     alert(result);
 }
